@@ -6,7 +6,6 @@ class BacktrackingSolver:
 
     def __init__(self, puzzle):
         self.puzzle = puzzle
-        self.solved_puzzle = None
 
     def possible(self, row, col, value):
         # if value already exists in the row it is not possible
