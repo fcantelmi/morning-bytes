@@ -8,18 +8,30 @@ class BacktrackingSolver:
         self.puzzle = puzzle
 
     def possible(self, row, col, value):
-        # if value already exists in the row it is not possible
-        # if value already exists in the col it is not possible
-        # if value already exists in the box it is not possible
+        if value in self.puzzle.row_values(row):
+            return False
 
-        # if, for this row and col, the value isn't in the row, col, or box it's possible!
-        pass
+        if value in self.puzzle.col_values(col):
+            return False
 
-    def solve(self):
-        # for each row and col
-        # if the current value for the cell is None
-        # guess a possible value and try solving again
-        pass
+        if value in self.puzzle.box_values(row, col):
+            return False
+
+        return True
+
+    def solve(self, start_row=0, start_col=0):
+        for row in range(9):
+            for col in range(9):
+                if self.puzzle.get_value(row, col) is None:
+                    for value in range(1, 10):
+                        if self.possible(row, col, value):
+                            self.puzzle.set_value(row, col, value)
+                            if self.solve(start_row=row, start_col=col) is False:
+                                self.puzzle.set_value(row, col, None)
+                    return False
+
+        print(self.puzzle)
+        return True
 
 
 class Puzzle:
