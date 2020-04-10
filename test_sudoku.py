@@ -66,6 +66,18 @@ class TestSudoku(unittest.TestCase):
         box_values = self.unsolved_puzzle.box_values(row=5, col=5)
         self.assertEqual(frozenset({2, 6, None}), box_values)
 
+    def test_backtracking_solver_possible_unsolved(self):
+        solver = sudoku.BacktrackingSolver(self.unsolved_puzzle)
+        self.assertFalse(solver.possible(row=0, col=0, value=1))
+        self.assertFalse(solver.possible(row=0, col=0, value=2))
+        self.assertTrue(solver.possible(row=0, col=0, value=3))
+        self.assertFalse(solver.possible(row=0, col=0, value=4))
+        self.assertFalse(solver.possible(row=0, col=0, value=5))
+        self.assertFalse(solver.possible(row=0, col=0, value=6))
+        self.assertTrue(solver.possible(row=0, col=0, value=7))
+        self.assertFalse(solver.possible(row=0, col=0, value=8))
+        self.assertFalse(solver.possible(row=0, col=0, value=9))
+
 
 if __name__ == '__main__':
     unittest.main()

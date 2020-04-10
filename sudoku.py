@@ -9,9 +9,17 @@ class BacktrackingSolver:
         self.solved_puzzle = None
 
     def possible(self, row, col, value):
+        # if value already exists in the row it is not possible
+        # if value already exists in the col it is not possible
+        # if value already exists in the box it is not possible
+
+        # if, for this row and col, the value isn't in the row, col, or box it's possible!
         pass
 
     def solve(self):
+        # for each row and col
+        # if the current value for the cell is None
+        # guess a possible value and try solving again
         pass
 
 
