@@ -1,0 +1,1 @@
+[Giant Machines](https://www.giantmachines.com/) is a software consultancy based in NYC. Morning Bytes are talks delivered by developers for developers to learn from each other. If anything that you find here is interesting consider [working with us!](https://www.giantmachines.com/careers)
