@@ -1,26 +1,34 @@
-import re
+def add_node(word, node):
+    if len(word) > 0:
+        head = word[0]
+        tail = word[1:]
+        if head not in node:
+            node[head] = {}
+        add_node(tail, node[head])
+
+
+def contains_node(word, node):
+    if len(word) > 0:
+        head = word[0]
+        tail = word[1:]
+        if head in node:
+            return contains_node(tail, node[head])
+        else:
+            return False
+    else:
+        return True
 
 
 class WordList:
 
-    @classmethod
-    def parse(cls, csv):
-        no_whitespace = re.sub(r'\s+', "", csv)
-        values = [int(val) if val in '123456789' else None for val in no_whitespace]
-
-        return cls([])
-
-    def __init__(self, words):
-        self.words = set(words)
+    def __init__(self):
+        self.trie = {}
 
     def __str__(self):
-        return str(self.words)
+        return str(self.trie)
 
     def add(self, word):
-        self.words.add(word)
-
-    def remove(self, word):
-        self.words.remove(word)
+        add_node(word, self.trie)
 
     def contains(self, word):
-        return word in self.words
+        return contains_node(word, self.trie)
