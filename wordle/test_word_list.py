@@ -24,6 +24,30 @@ class TestWordList(unittest.TestCase):
         self.assertTrue(self.wl.contains(expected1))
         self.assertTrue(self.wl.contains(expected2))
 
+    def test_all(self):
+        # self.assertSetEqual(set(), self.wl.all())
+
+        expected1 = 'bat'
+        expected2 = 'bar'
+        self.assertFalse(self.wl.contains(expected1))
+        self.assertFalse(self.wl.contains(expected2))
+        self.wl.add(expected1)
+        self.wl.add(expected2)
+
+        self.assertSetEqual({expected1, expected2}, self.wl.all())
+
+    def test_startswith(self):
+        # self.assertSetEqual(set(), self.wl.all())
+        expected1 = 'foo'
+        expected2 = 'bar'
+        expected3 = 'baz'
+
+        self.wl.add(expected1)
+        self.wl.add(expected2)
+        self.wl.add(expected3)
+
+        self.assertSetEqual({expected2, expected3}, self.wl.startswith('ba'))
+
 
 if __name__ == '__main__':
     unittest.main()
