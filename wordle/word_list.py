@@ -59,7 +59,9 @@ class WordList:
     def startswith(self, prefix):
         words = set()
         node = find_node(prefix, self.trie)
-        startswith_node(words, prefix, node)
+        if node:
+            startswith_node(words, prefix, node)
+
         return words
 
     def all(self):

@@ -37,7 +37,7 @@ class TestWordList(unittest.TestCase):
         self.assertSetEqual({expected1, expected2}, self.wl.all())
 
     def test_startswith(self):
-        # self.assertSetEqual(set(), self.wl.all())
+        self.assertSetEqual(set(), self.wl.all())
         expected1 = 'foo'
         expected2 = 'bar'
         expected3 = 'baz'
@@ -47,6 +47,22 @@ class TestWordList(unittest.TestCase):
         self.wl.add(expected3)
 
         self.assertSetEqual({expected2, expected3}, self.wl.startswith('ba'))
+
+    def test_startswith_prefix_not_present(self):
+        self.assertSetEqual(set(), self.wl.all())
+        expected1 = 'foo'
+        expected2 = 'bar'
+        expected3 = 'baz'
+
+        self.wl.add(expected1)
+        self.wl.add(expected2)
+        self.wl.add(expected3)
+
+        self.assertSetEqual(set(), self.wl.startswith('z'))
+
+    def test_startswith_empty_list(self):
+        self.assertSetEqual(set(), self.wl.all())
+        self.assertSetEqual(set(), self.wl.startswith('z'))
 
 
 if __name__ == '__main__':
