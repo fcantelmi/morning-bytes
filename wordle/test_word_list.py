@@ -25,8 +25,7 @@ class TestWordList(unittest.TestCase):
         self.assertTrue(self.wl.contains(expected2))
 
     def test_all(self):
-        # self.assertSetEqual(set(), self.wl.all())
-
+        self.assertSetEqual(set(), self.wl.all())
         expected1 = 'bat'
         expected2 = 'bar'
         self.assertFalse(self.wl.contains(expected1))
