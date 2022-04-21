@@ -66,6 +66,23 @@ class TestTrie(unittest.TestCase):
         self.assertSetEqual(set(), trie.all(root))
         self.assertSetEqual(set(), trie.startswith(root, 'z'))
 
+    @unittest.skip("prefix words are not implemented yet")
+    def test_she_shells(self):
+        root = {}
+        self.assertSetEqual(set(), trie.all(root))
+
+        expected1 = 'she'
+        expected2 = 'sells'
+        expected3 = 'sea'
+        expected4 = 'shells'
+
+        trie.add(root, expected1)
+        trie.add(root, expected2)
+        trie.add(root, expected3)
+        trie.add(root, expected4)
+
+        self.assertSetEqual({expected1, expected2, expected3, expected4}, trie.all(root))
+
 
 if __name__ == '__main__':
     unittest.main()
