@@ -25,7 +25,7 @@ class TestTrie(unittest.TestCase):
 
     def test_all(self):
         root = {}
-        #self.assertSetEqual(set(), trie.all(root))
+        # self.assertSetEqual(set(), trie.all(root))
         expected1 = 'bat'
         expected2 = 'bar'
         self.assertFalse(trie.contains(root, expected1))
@@ -37,7 +37,7 @@ class TestTrie(unittest.TestCase):
 
     def test_startswith(self):
         root = {}
-        #self.assertSetEqual(set(), trie.all(root))
+        # self.assertSetEqual(set(), trie.all(root))
         expected1 = 'foo'
         expected2 = 'bar'
         expected3 = 'baz'
@@ -50,7 +50,7 @@ class TestTrie(unittest.TestCase):
 
     def test_startswith_prefix_not_present(self):
         root = {}
-        #self.assertSetEqual(set(), trie.all(root))
+        # self.assertSetEqual(set(), trie.all(root))
         expected1 = 'foo'
         expected2 = 'bar'
         expected3 = 'baz'
@@ -63,7 +63,7 @@ class TestTrie(unittest.TestCase):
 
     def test_startswith_empty_list(self):
         root = {}
-        #self.assertSetEqual(set(), trie.all(root))
+        # self.assertSetEqual(set(), trie.all(root))
         self.assertSetEqual(set(), trie.startswith(root, 'z'))
 
 

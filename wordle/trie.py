@@ -54,7 +54,7 @@ def all(root):
     return startswith(root, '')
 
 
-def tojson(node):
+def to_json(node):
     return json.dumps(node, indent=2)
 
 
@@ -87,29 +87,29 @@ if __name__ == '__main__':
     print(sorted(startswith(r, '')))
     print(len(startswith(r, '')))
     print()
-    print(tojson(r))
-    print(tojson(s))
+    print(to_json(r))
+    print(to_json(s))
     print()
 
     wordle_202201 = "LIGHT,WRUNG,COULD,PERKY,MOUNT,WHACK,SUGAR,KNOLL,CRIMP,WINCE,PRICK,ROBOT,POINT,PROXY,SHIRE,SOLAR," \
                     "PANIC,TANGY,ABBEY,FAVOR,DRINK,QUERY,GORGE,CRANK,SLUMP,BANAL,TIGER,SIEGE,TRUSS,BOOST,REBUS "
 
-    root = {}
+    rt = {}
     for w in wordle_202201.split(','):
-        add(root, w.lower())
+        add(rt, w.lower())
 
-    print(tojson(root))
-    print(startswith(root, 'p'))
-    print(startswith(root, 'pr'))
-    print(startswith(root, 'pro'))
-    print(tojson(find(root, 'c')))
-    print(tojson(find(root, 'crank')))
-    print(tojson(find(root, 'cranz')))
-    print(tojson(find(root, 's')))
+    print(to_json(rt))
+    print(startswith(rt, 'p'))
+    print(startswith(rt, 'pr'))
+    print(startswith(rt, 'pro'))
+    print(to_json(find(rt, 'c')))
+    print(to_json(find(rt, 'crank')))
+    print(to_json(find(rt, 'cranz')))
+    print(to_json(find(rt, 's')))
 
     top = {}
     add(top, 'she')
     add(top, 'sells')
     add(top, 'sea')
     # add(top, 'shells')
-    print(tojson(top))
+    print(to_json(top))
