@@ -40,7 +40,7 @@ def traverse_children(node, words, word):
 def startswith(root, prefix):
     node = find(root, prefix)
 
-    if node is None:
+    if root == {} or node is None:
         return set()
     elif node == {}:
         return {prefix}
