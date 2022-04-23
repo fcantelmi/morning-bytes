@@ -9,22 +9,25 @@ wordle_202202 = "CHOKE,CHANT,SPILL,VIVID,BLOKE,TROVE,THORN,OTHER,TACIT,SWILL,DOD
 wordle_202203 = "LOWLY,STOVE,SHALL,FOUND,NYMPH,EPOCH,DEPOT,CHEST,PURGE,SLOSH,THEIR,RENEW,ALLOW,SAUTE,MOVIE,CATER," \
                 "TEASE,SMELT,FOCUS,TODAY,WATCH,LAPSE,MONTH,SWEET,HOARD,CLOTH,BRINE,AHEAD,MOURN,NASTY,RUPEE"
 
-root = {}
+if __name__ == '__main__':
 
-for w in wordle_202201.split(','):
-    trie.add(root, w.lower())
-for w in wordle_202202.split(','):
-    trie.add(root, w.lower())
-for w in wordle_202203.split(','):
-    trie.add(root, w.lower())
+    root = {}
 
-# print(trie.to_json(root))
-print(trie.startswith(root, 's'))
-print(trie.to_json(trie.find(root, 's')))
-print(trie.count(root))
-print()
-counts = {}
-for letter in ascii_lowercase:
-    counts[letter] = trie.count(trie.find(root, letter))
+    for w in wordle_202201.split(','):
+        trie.add(root, w.lower())
+    for w in wordle_202202.split(','):
+        trie.add(root, w.lower())
+    for w in wordle_202203.split(','):
+        trie.add(root, w.lower())
 
-print(counts)
+    # print(trie.to_json(root))
+    print(trie.startswith(root, 's'))
+    print(trie.to_json(trie.find(root, 's')))
+    print(trie.count(root))
+    print()
+
+    counts = {}
+    for letter in ascii_lowercase:
+        counts[letter] = trie.count(trie.find(root, letter))
+
+    print(counts)

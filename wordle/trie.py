@@ -62,41 +62,9 @@ def startswith(root, prefix):
         return words
 
 
-def all(root):
+def everything(root):
     return startswith(root, '')
 
 
 def to_json(node):
     return json.dumps(node, indent=2)
-
-
-if __name__ == '__main__':
-
-    scrabble_two_letter_words = """
-    aa, ab, ad, ae, ag, ah, ai, al, am, an, 
-    ar, as, at, aw, ax, ay, ba, be, bi, bo, 
-    by, da, de, do, ed, ef, eh, el, em, en, 
-    er, es, et, ew, ex, fa, fe, gi, go, ha, 
-    he, hi, hm, ho, id, if, in, is, it, jo, 
-    ka, ki, la, li, lo, ma, me, mi, mm, mo, 
-    mu, my, na, ne, no, nu, od, oe, of, oh, 
-    oi, ok, om, on, op, or, os, ow, ox, oy, 
-    pa, pe, pi, po, qi, re, sh, si, so, ta, 
-    te, ti, to, uh, um, un, up, us, ut, we, 
-    wo, xi, xu, ya, ye, yo, za"""
-
-    r = {}
-    for w in scrabble_two_letter_words.split(','):
-        add(r, w.strip())
-        add(s, w.strip()[::-1])
-
-    print(sorted(startswith(r, 'a')))
-    print(sorted(startswith(r, 'c')))
-    print(sorted(startswith(r, 'y')))
-    print(sorted(startswith(r, 'ye')))
-    print(sorted(startswith(r, 'z')))
-    print(sorted(startswith(r, '')))
-    print(len(startswith(r, '')))
-    print()
-    print(to_json(r))
-    print()
