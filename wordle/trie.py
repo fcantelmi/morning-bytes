@@ -29,6 +29,18 @@ def contains(node, word):
         return True
 
 
+def count(node):
+    if node is None:
+        return 0
+    elif node == {}:
+        return 1
+    else:
+        s = 0
+        for child in node.values():
+            s += count(child)
+        return s
+
+
 def traverse_children(node, words, word):
     if node == {}:
         words.add(word)
@@ -74,7 +86,6 @@ if __name__ == '__main__':
     wo, xi, xu, ya, ye, yo, za"""
 
     r = {}
-    s = {}
     for w in scrabble_two_letter_words.split(','):
         add(r, w.strip())
         add(s, w.strip()[::-1])
@@ -88,28 +99,4 @@ if __name__ == '__main__':
     print(len(startswith(r, '')))
     print()
     print(to_json(r))
-    print(to_json(s))
     print()
-
-    wordle_202201 = "LIGHT,WRUNG,COULD,PERKY,MOUNT,WHACK,SUGAR,KNOLL,CRIMP,WINCE,PRICK,ROBOT,POINT,PROXY,SHIRE,SOLAR," \
-                    "PANIC,TANGY,ABBEY,FAVOR,DRINK,QUERY,GORGE,CRANK,SLUMP,BANAL,TIGER,SIEGE,TRUSS,BOOST,REBUS "
-
-    rt = {}
-    for w in wordle_202201.split(','):
-        add(rt, w.lower())
-
-    print(to_json(rt))
-    print(startswith(rt, 'p'))
-    print(startswith(rt, 'pr'))
-    print(startswith(rt, 'pro'))
-    print(to_json(find(rt, 'c')))
-    print(to_json(find(rt, 'crank')))
-    print(to_json(find(rt, 'cranz')))
-    print(to_json(find(rt, 's')))
-
-    top = {}
-    add(top, 'she')
-    add(top, 'sells')
-    add(top, 'sea')
-    # add(top, 'shells')
-    print(to_json(top))
