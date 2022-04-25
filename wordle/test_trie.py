@@ -54,6 +54,20 @@ class TestTrie(unittest.TestCase):
         self.assertSetEqual(set(), trie.everything(root))
         self.assertSetEqual(set(), trie.startswith(root, 'z'))
 
+    # @unittest.skip("count not implemented yet")
+    def test_count(self):
+        root = {}
+
+        self.assertEqual(0, trie.count(root))
+        trie.add(root, 'a')
+        self.assertEqual(1, trie.count(root))
+        trie.add(root, 'b')
+        self.assertEqual(2, trie.count(root))
+        trie.add(root, 'c')
+        self.assertEqual(3, trie.count(root))
+        trie.add(root, 'd')
+        self.assertEqual(4, trie.count(root))
+
     @unittest.skip("prefix words are not implemented yet")
     def test_she_shells(self):
         root = {}

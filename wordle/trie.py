@@ -29,15 +29,17 @@ def contains(node, word):
         return True
 
 
-def count(node):
+def count(node, root=True):
     if node is None:
+        return 0
+    elif node == {} and root is True:
         return 0
     elif node == {}:
         return 1
     else:
         s = 0
         for child in node.values():
-            s += count(child)
+            s += count(child, root=False)
         return s
 
 
