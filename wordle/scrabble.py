@@ -98,4 +98,4 @@ scrabble_three_letter_words = {'wot', 'ava', 'gib', 'jin', 'sip', 'yah', 'ugh', 
                                'fib', 'lap', 'fas', 'hoe', 'hap', 'eng', 'kob', 'fix', 'fur'}
 
 if __name__ == '__main__':
-    pass
+    root = {}

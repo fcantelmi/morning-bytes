@@ -20,9 +20,15 @@ if __name__ == '__main__':
     for w in wordle_202203.split(','):
         trie.add(root, w.lower())
 
-    # print(trie.to_json(root))
-    print(trie.startswith(root, 's'))
-    print(trie.to_json(trie.find(root, 's')))
+    print(trie.to_json(root))
+    # print(sorted(trie.startswith(root, 's')))
+    # print(trie.to_json(trie.find(root, 's')))
+    # print(sorted(trie.startswith(root, 'c')))
+    # print(trie.to_json(trie.find(root, 'c')))
+    # print(sorted(trie.startswith(root, 't')))
+    # print(trie.to_json(trie.find(root, 't')))
+    print(sorted(trie.startswith(root, 'r')))
+    print(trie.to_json(trie.find(root, 'r')))
     print(trie.count(root))
     print()
 
