@@ -23,7 +23,7 @@ class TestTrie(unittest.TestCase):
         self.assertTrue(trie.contains(root, expected1))
         self.assertTrue(trie.contains(root, expected2))
 
-    def test_all(self):
+    def test_everything(self):
         root = {}
         self.assertSetEqual(set(), trie.everything(root))
         expected1 = 'bat'
