@@ -10,6 +10,10 @@ def add(node, word):
         add(node[head], tail)
 
 
+def remove(node, word):
+    pass
+
+
 def find(node, prefix):
     if len(prefix) > 0:
         head = prefix[0]
@@ -62,6 +66,10 @@ def startswith(root, prefix):
         words = set()
         traverse_children(node, words, prefix)
         return words
+
+
+def longestprefix(root, prefix):
+    pass
 
 
 def everything(root):

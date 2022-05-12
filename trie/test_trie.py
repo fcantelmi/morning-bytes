@@ -85,6 +85,35 @@ class TestTrie(unittest.TestCase):
 
         self.assertSetEqual({expected1, expected2, expected3, expected4}, trie.everything(root))
 
+    @unittest.skip("longestprefix is not implemented yet")
+    def test_longestprefix(self):
+        root = {}
+        self.assertSetEqual(set(), trie.everything(root))
+
+        expected1 = 'she'
+        expected2 = 'sells'
+        expected3 = 'sea'
+
+        trie.add(root, expected1)
+        trie.add(root, expected2)
+        trie.add(root, expected3)
+        self.assertTrue('she' == trie.longestprefix(root, 'shells'))
+
+    @unittest.skip("remove is not implemented yet")
+    def test_remove(self):
+        expected_word = 'bat'
+        root = {}
+        self.assertFalse(trie.contains(root, expected_word))
+        trie.add(root, expected_word)
+        self.assertTrue(trie.contains(root, expected_word))
+        trie.remove(root, expected_word)
+        self.assertFalse(trie.contains(root, expected_word))
+        trie.add(root, 'bar')
+        trie.add(root, 'baz')
+        trie.remove(root, 'bar')
+        self.assertFalse(trie.contains(root, 'bar'))
+        self.assertTrue(trie.contains(root, 'baz'))
+
 
 if __name__ == '__main__':
     unittest.main()

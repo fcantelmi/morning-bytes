@@ -5,7 +5,7 @@ root = {}
 trie.add(root, "foo")
 trie.add(root, "bar")
 trie.add(root, "baz")
-trie.add(root, "bot")
+trie.add(root, "bot")  # foo
 
 print(trie.to_json(root))
 print(trie.startswith(root, 'b'))
