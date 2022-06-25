@@ -1,4 +1,5 @@
 import collections.abc
+from typing import Iterator
 
 
 class BinarySearchTree(collections.abc.MutableSet):
@@ -58,6 +59,18 @@ class BinarySearchTree(collections.abc.MutableSet):
         keys = []
         self.collect(keys)
         return keys
+
+
+class SortedSet(collections.abc.Set):
+
+    def __contains__(self, x: object) -> bool:
+        pass
+
+    def __len__(self) -> int:
+        pass
+
+    def __iter__(self) -> Iterator:
+        pass
 
 
 def main():
