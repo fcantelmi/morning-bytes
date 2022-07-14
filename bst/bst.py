@@ -1,5 +1,4 @@
 import collections.abc
-from typing import Iterator
 
 
 class BinarySearchTree(collections.abc.MutableSet):
@@ -13,6 +12,15 @@ class BinarySearchTree(collections.abc.MutableSet):
                 self.add(key)
 
     def __contains__(self, key) -> bool:
+        # __contains__ is invoked by the "in" operator.
+        # It should return True if the key is present in the set, else False.
+        #
+        # We always say make it work, make it right, make it fast (I think Ken Dodd was the originator).
+        # This implementation of __contains__ works by building a list with every key in the list.
+        # This is very inefficient because we touch every element to find a single element.
+        #
+        # Let's rewrite this method to leverage the binary search tree property: the key value for the node
+        # is greater than the key value for the left child node and less than the key of the right child.
         return key in self.everything()
 
     def __len__(self) -> int:
@@ -46,6 +54,12 @@ class BinarySearchTree(collections.abc.MutableSet):
         else:
             return self.right.max()
 
+    def min(self):
+        # use the binary search tree property to implement to implement min.
+        # for any node in a binary search, the key value for the node is less than the right child and
+        # greater than the left child (unless there is no left child...).
+        pass
+
     def collect(self, keys):
         if self.left:
             self.left.collect(keys)
@@ -59,18 +73,6 @@ class BinarySearchTree(collections.abc.MutableSet):
         keys = []
         self.collect(keys)
         return keys
-
-
-class SortedSet(collections.abc.Set):
-
-    def __contains__(self, x: object) -> bool:
-        pass
-
-    def __len__(self) -> int:
-        pass
-
-    def __iter__(self) -> Iterator:
-        pass
 
 
 def main():
@@ -88,6 +90,7 @@ def main():
         print(key)
 
     print(len(root))
+    print([key for key in root])
 
     ts = BinarySearchTree()
     ts.add(0)
